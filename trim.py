@@ -1,7 +1,7 @@
 from moviepy.editor import *
   
 # uploading the video
-video = VideoFileClip("./output/b.mp4")
+video = VideoFileClip("./output/a.mp4")
   
-video = video.subclip(0, 15)
-video.write_videofile("./output/c.mp4", fps=60)
+video = video.subclip(0, 10)
+video.write_videofile("./output/a-crop.mp4", fps=60)
