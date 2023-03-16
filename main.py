@@ -2,17 +2,16 @@ from hero_functions.get_audio_length import get_audio_length
 from hero_functions.get_img_change_frames import get_img_change_frames
 from hero_functions.osu_parser import osu_parsed_data, osu_parser
 from hero_functions.assert_image_dimension_consistent import assert_image_dimension_consistent
-from hero_functions.chimu import chimu
+from hero_functions.chimu import download_beatmaps
 from hero_functions.compose_image import compose_image
 from hero_functions.pick_desired_difficulty_beatmap import pick_desired_difficulty_beatmap
-from mutagen.mp3 import MP3
 import moviepy.editor as mpe
 import math
 import cv2
 
 
 # constants
-DIFFICULTY_DESIRED = 3.5
+DIFFICULTY_DESIRED = 5
 BASE_NOTE_VELOCITY = 600  # in px per second
 FPS = 60
 
@@ -28,7 +27,7 @@ def generate_video(id: int):
     print(f"Images asserted to be in consistent dimension {dimension}")
 
     # download and extracts the assets
-    chimu(id)
+    download_beatmaps(id)
     print(f"Downloaded and extracted assets of beatmap set {id}.")
 
     # pick the beatmap that is closest to DIFFICULTY_DESIRED
@@ -116,6 +115,6 @@ def generate_video(id: int):
 
 
 if __name__ == "__main__":
-    data = [1795684, 1812415, 1870775, 1881219]
+    data = [1667710, 1795684, 1812415, 1870775, 1881219]
     for id in data:
         generate_video(id)
