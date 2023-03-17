@@ -1,6 +1,5 @@
 import os
 import zipfile
-from pprint import pprint
 from urllib.parse import urlencode
 from requests import get
 
@@ -20,7 +19,7 @@ def download_beatmaps():
         "genre": 2,
         "min_diff": 4,
         "max_diff": 5.5,
-        "amount": 5,
+        "amount": 50,
         "max_length": 180
     })
     query_path = f"{query_base_path}?{query_query}"

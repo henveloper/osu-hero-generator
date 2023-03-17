@@ -15,3 +15,10 @@ py ./img_count.py --fps 120 --difficulty 4.5
 1876784, 48
 ```
 
+# `./main.py`
+
+This script generate the videos
+
+```raw
+py ./main.py
+```

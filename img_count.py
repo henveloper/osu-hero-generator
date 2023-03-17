@@ -37,6 +37,7 @@ def main():
         # getting the frames in which the image should change
         img_change_frames = get_img_change_frames(
             target_game_definition, total_length_second, fps)
+        
         print(f"{beatmap}, {len(img_change_frames)}")
 
         # seems chimu have rate limit mechanism
