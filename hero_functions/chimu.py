@@ -1,4 +1,5 @@
 import os
+from pprint import pprint
 import zipfile
 from urllib.parse import urlencode
 from requests import get
@@ -19,17 +20,21 @@ def download_beatmaps():
         "genre": 2,
         "min_diff": 4,
         "max_diff": 5.5,
-        "amount": 50,
-        "max_length": 180
+        "amount": 10,
+        # "min_length": 300,
+        # "max_length": 600
+        "max_length": 60
     })
     query_path = f"{query_base_path}?{query_query}"
     query_response = get(query_path).json()
     set_ids = list(map(lambda q: q["SetId"], query_response["data"]))
+    pprint(list(map(lambda q: (q["SetId"], q["Title"]), query_response["data"])))
 
     for beatmap_id in set_ids:
         url = f"https://api.chimu.moe/v1/set/{beatmap_id}"
         get(url)
 
+        # TODO: can't -r if no admin privledge
         # rm file if files exist in beatmap set folder
         if os.path.exists(f"./beatmaps/{beatmap_id}"):
             for file in os.listdir(f"./beatmaps/{beatmap_id}"):

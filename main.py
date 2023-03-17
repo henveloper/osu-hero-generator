@@ -4,7 +4,7 @@ from hero_functions.osu_parser import osu_parsed_data, osu_parser
 from hero_functions.assert_image_dimension_consistent import assert_image_dimension_consistent
 from hero_functions import gameplay_painter
 from hero_functions.pick_desired_difficulty_beatmap import pick_desired_difficulty_beatmap
-import numpy as np
+import os
 import moviepy.editor as mpe
 import math
 import cv2
@@ -18,7 +18,7 @@ FPS = 144
 
 # debug
 PREVIEW_SECONDS = None
-PREVIEW_SECONDS = 10
+# PREVIEW_SECONDS = 10
 if PREVIEW_SECONDS is not None:
     FPS = 30
 
@@ -28,7 +28,7 @@ if PREVIEW_SECONDS is not None:
 def generate_video(id: int):
     OUTPUT_PATH_MP4_MUTE = f"./output/fh_{id}_mute.mp4"
     OUTPUT_PATH_MP4 = f"./output/fh_{id}.mp4"
-    images_folder_path = f"./assets/{id}"
+    images_folder_path = f"C:/Users/Private/Desktop/stable_diffusion/gallery/{id}"
 
     # assert images with same dimensions
     img_names, sd_dimension = assert_image_dimension_consistent(
@@ -146,6 +146,10 @@ def generate_video(id: int):
 
 
 if __name__ == "__main__":
-    data = [1883852]
-    for id in data:
-        generate_video(id)
+    for id in os.listdir("./beatmaps"):
+        try:
+            generate_video(int(id))
+        except Exception as ex:
+            pass
+
+
