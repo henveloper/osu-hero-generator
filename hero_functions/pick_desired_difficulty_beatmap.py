@@ -3,6 +3,9 @@ from hero_functions.osu_parser import osu_parser
 
 
 def pick_desired_difficulty_beatmap(beatmap_asset_folder_path: str, desired_difficulty: float):
+    """
+    TODO: comments
+    """
     target_game_definition = None
     min_target_delta = None
     for file in os.listdir(beatmap_asset_folder_path):

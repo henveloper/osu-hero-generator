@@ -1,6 +1,6 @@
 import math
 import cv2
-from typing import Tuple
+import threading
 
 # configs
 # transition delta - ratio approaching center to enlarge/whitens the notes
