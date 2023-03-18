@@ -1,5 +1,5 @@
 import os
-import pprint
+from pprint import pprint
 from argparse import ArgumentParser
 from urllib.parse import urlencode
 import zipfile
@@ -27,18 +27,19 @@ def main():
 
     genre mapping
     2 -> video game
+    10 -> electronic
     """
     query_base_path = "https://api.chimu.moe/v1/search"
     query_query = urlencode({
         "status": 1,  # ranked
         "mode": 1,  # osu!taiko
-        "genre": 2,
+        "genre": 10,
         "min_diff": 4,
         "max_diff": 5.5,
         "amount": count,
-        # "min_length": 300,
-        # "max_length": 600
-        "max_length": 60
+        "min_length": 300,
+        "max_length": 600
+        # "max_length": 60
     })
     query_path = f"{query_base_path}?{query_query}"
     query_response = get(query_path).json()

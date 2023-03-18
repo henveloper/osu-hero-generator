@@ -19,7 +19,7 @@ TODO: expose more args
 The console will return a csv table containing rows of beatmap id and number of images.
 
 ```raw
-py ./order.py --fps 120
+py ./order.py --count 10 --fps 120
 1883852, 75
 1934416, 47
 338251, 76
