@@ -46,7 +46,7 @@ By any means, make a folder with the following structure and nothing else.
 This script generate the videos.
 
 ```raw
-py ./main.py --gallery_path "C:\Users\Private\Desktop\stable_diffusion\gallery" --dump_path "C:\Users\Private\Desktop\stable_diffusion\hero"
+py ./main.py --gallery_path "C:\Users\Private\Desktop\fh\gallery" --dump_path "C:\Users\Private\Desktop\fh\videos"
 ```
 
 ## Literally 1984

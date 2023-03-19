@@ -23,7 +23,7 @@ def main():
     arg_parser = ArgumentParser()
     arg_parser.add_argument("--gallery_path", required=True, type=str)
     arg_parser.add_argument("--dump_path", required=True, type=str)
-    arg_parser.add_argument("--FPS", required=True, type=int)
+    arg_parser.add_argument("--fps", required=True, type=int)
     arg_parser.add_argument("--debug", action="store_true")
     args = arg_parser.parse_args()
     gallery_path = args.gallery_path
@@ -40,7 +40,7 @@ def main():
             pass
 
 
-def generate_video(id: int, gallery_root: str, dump_path: str, fps: int, debug: True | None):
+def generate_video(id: int, gallery_root: str, dump_path: str, fps: int, debug: True):
     """
     main entry pt for generate video
     """
